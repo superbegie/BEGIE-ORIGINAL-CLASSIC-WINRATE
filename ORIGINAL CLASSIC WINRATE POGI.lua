@@ -14,23 +14,9 @@ function StartupLoading()
     end
 end
 
---[ HIDE NAME FUNCTION ]--
-function hidenametwoON()
-    StartupLoading()
-    hidenametwoTOGGLE = true
-    gg.setRanges(gg.REGION_C_ALLOC)
-    gg.clearResults()
-    gg.searchNumber("4697254412429557760", gg.TYPE_QWORD)
-    gg.getResults(9999)
-    gg.editAll("-9999999", gg.TYPE_QWORD)
-    gg.clearResults()
-    gg.toast("𝗛𝗜𝗗𝗘 𝗡𝗔𝗠𝗘 𝗔𝗖𝗧𝗜𝗩𝗔𝗧𝗘𝗗!⚡")
-    gg.sleep(2000)
-end
-
 --[ EXIT SYSTEM ]--
 function ExitScript()
-    gg.alert("ꜱᴄʀɪᴘᴛ ᴛᴇʀᴍɪɴᴀᴛᴇᴅ.\nᴛʜᴀɴᴋ ʏᴏᴜ ꜰᴏʀ ᴜꜱɪɴɢ!")
+    gg.alert("ꜱᴄʀɪᴘᴛ ᴛᴇʀᴍɪɴᴀᴛᴇᴅ.\nᴛʜᴀɴᴋ ʏᴏᴜ ꜰ𝚘𝚛 ᴜꜱɪɴɢ!")
     os.exit()
 end
 
@@ -89,6 +75,7 @@ function SECURITY_CHECK()
 end
 
 SECURITY_CHECK()
+StartupLoading() -- Trigger loading bar after security check
 
 function MAIN()
     local menu = gg.multiChoice({
@@ -111,7 +98,6 @@ function ENEMY_PLAYER()
         "🔭 𝙳𝚛𝚘𝚗𝚎 𝚅𝚒𝚎𝚠",
         "📍 𝙼𝚊𝚙𝙷𝚊𝚌𝚔 (𝙽𝚘 𝙸𝚌𝚘𝚗)",
         "🎯 𝙴𝚗𝚎𝚖𝚢 𝙻𝚘𝚌𝚔",
-        "👤 𝙷𝚒𝚍𝚎 𝙽𝚊𝚖𝚎",
         "🔙 𝙱𝚊𝚌𝚔"
     }, nil, "👤 𝙴𝙽𝙴𝙼𝚈 𝙿𝙻𝙰𝚈𝙴𝚁 𝙼𝙴𝙽𝚄")
 
@@ -119,7 +105,6 @@ function ENEMY_PLAYER()
     if menu[1] then HOME() end
     if menu[2] then map() end
     if menu[3] then enemy() end 
-    if menu[4] then hidenametwoON() end
 end
 
 function ENEMY_BOT()
@@ -297,17 +282,13 @@ function GOLD()
     gg.setVisible(false)
     gg.toast("🚀 𝚄𝚗𝚕𝚒𝚖𝚒𝚝𝚎𝚍 𝙶𝚘𝚕𝚍 𝚂𝚌𝚛𝚒𝚙𝚝 𝚂𝚝𝚊𝚛𝚝𝚎𝚍")
     gg.sleep(1000)
-    
     gg.toast("🔍 𝚂𝚝𝚎𝚙 1: 𝚂𝚎𝚊𝚛𝚌𝚑𝚒𝚗𝚐 𝚏𝚘𝚛 𝚌𝚞𝚛𝚛𝚎𝚗𝚝 𝙶𝚘𝚕𝚍...")
     gg.searchNumber("300", gg.TYPE_DWORD)
     gg.sleep(2000)
-    
     gg.toast("💰 𝙽𝚘𝚠 𝚋𝚞𝚢 𝚊𝚗𝚢 𝚒𝚝𝚎𝚖 𝚝𝚘 𝚛𝚎𝚍𝚞𝚌𝚎 𝚐𝚘𝚕𝚍...")
     gg.sleep(3000)
-    
     gg.toast("🔍 𝚂𝚝𝚎𝚙 2: 𝚁𝚎𝚏𝚒𝚗𝚒𝚗𝚐...")
-    gg.searchNumber("50", gg.TYPE_DWORD) 
-    
+    gg.searchNumber("50", gg.TYPE_DWORD)
     local count = gg.getResultCount()
     if count > 0 then
         gg.getResults(100)
@@ -324,44 +305,24 @@ function skipperClassic()
     StartupLoading()
     gg.clearResults()
     gg.setRanges(gg.REGION_ANONYMOUS)
-    
     local waktuList = {"⏳ 04:00", "⏳ 08:00", "⏳ 10:00", "⏳ 12:00"}
-    local waktuMap = {
-        ["⏳ 04:00"] = 240000, 
-        ["⏳ 08:00"] = 480000, 
-        ["⏳ 10:00"] = 600000, 
-        ["⏳ 12:00"] = 720000
-    }
-    
+    local waktuMap = {["⏳ 04:00"] = 240000, ["⏳ 08:00"] = 480000, ["⏳ 10:00"] = 600000, ["⏳ 12:00"] = 720000}
     local pilihan = gg.choice(waktuList, nil, "🎮 𝚂𝚎𝚕𝚎𝚌𝚝 𝚝𝚊𝚛𝚐𝚎𝚝 𝚝𝚒𝚖𝚎 𝚝𝚘 𝚂𝚔𝚒𝚙/𝚁𝚎𝚜𝚎𝚝:")
     if pilihan == nil then return end
-    
     gg.searchNumber("30000;45000;1", gg.TYPE_DWORD)
     gg.refineNumber("30000", gg.TYPE_DWORD)
-    
     local hasil = gg.getResults(10)
     if #hasil == 0 then gg.toast("𝙽𝚘 𝚛𝚎𝚜𝚞𝚕𝚝𝚜 𝚏𝚘𝚞𝚗𝚍.") return end
-    
     local save = {}
     for i, v in ipairs(hasil) do table.insert(save, {address = v.address - 0x8, flags = gg.TYPE_DWORD}) end
-    
     local sebelum = gg.getValues(save)
     gg.sleep(500)
     local sesudah = gg.getValues(save)
-    
     local target = nil
     for i = 1, #sebelum do
-        if sebelum[i].value ~= sesudah[i].value then 
-            target = save[i] 
-            break 
-        end
+        if sebelum[i].value ~= sesudah[i].value then target = save[i] break end
     end
-    
-    if target == nil then 
-        gg.toast("𝙵𝚊𝚒𝚕𝚎𝚍 𝚝𝚘 𝚍𝚎𝚝𝚎𝚌𝚝 𝚊𝚍𝚍𝚛𝚎𝚜𝚜.") 
-        return 
-    end
-    
+    if target == nil then gg.toast("𝙵𝚊𝚒𝚕𝚎𝚍 𝚝𝚘 𝚍𝚎𝚝𝚎𝚌𝚝 𝚊𝚍𝚍𝚛𝚎𝚜𝚜.") return end
     target.value = waktuMap[waktuList[pilihan]]
     gg.setValues({target})
     gg.toast("✅ 𝙼𝚊𝚝𝚌𝚑 𝚝𝚒𝚖𝚎 𝚜𝚎𝚝 𝚝𝚘 " .. waktuList[pilihan])
